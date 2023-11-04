@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="JKoonce_Capstone.Views.Reports"
+             Title="Reports">
+    <VerticalStackLayout Margin="20" Spacing="15">
+        <Grid Padding="5" RowSpacing="1" ColumnSpacing="1" BackgroundColor="WhiteSmoke">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Button Text="Generate Course Based Report" Grid.Row="1" x:Name="ReportButton" Clicked="ReportButton_Clicked" HorizontalOptions="FillAndExpand"></Button>
+            <Button Text="Share Report" Grid.Row="2" x:Name="ReportShareButton" Clicked="ReportShareButton_Clicked" HorizontalOptions="FillAndExpand"></Button>
+            <Entry  x:Name="ReportDateBar" Placeholder="No Report Ran" Grid.Row="3" Grid.Column="0" HorizontalOptions="FillAndExpand" IsReadOnly="True"></Entry>
+        </Grid>
+        <CollectionView x:Name="ReportListView"
+    ItemsSource="{Binding Course}"
+    EmptyView="No Courses to Display."
+    SelectionMode="Single"
+    SelectionChanged="ReportListView_SelectionChanged">
+
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Vertical"
+        ItemSpacing="10"/>
+            </CollectionView.ItemsLayout>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout>
+                        <Grid Padding="5" RowSpacing="1" ColumnSpacing="22" BackgroundColor="BlanchedAlmond">
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Label Grid.Row="0" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center" FontAttributes="Bold">ID</Label>
+                            <Label Text="{Binding CId}"
+                       FontSize="Medium" Grid.Row="0" Grid.Column="1" VerticalTextAlignment="Center"/>
+
+                            <Label Grid.Row="1" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center" FontAttributes="Bold">Name</Label>
+                            <Label Text="{Binding CName}"
+                       FontSize="Medium" Grid.Row="1" Grid.Column="1" VerticalTextAlignment="Center"/>
+
+                            <Label Grid.Row="2" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center" FontAttributes="Bold">Start Date</Label>
+                            <Label Text="{Binding CStartDate}"
+                       FontSize="Medium" Grid.Row="2" Grid.Column="1" VerticalTextAlignment="Center"/>
+
+                            <Label Grid.Row="3" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center" FontAttributes="Bold">End Date</Label>
+                            <Label Text="{Binding CEndDate}"
+                       FontSize="Medium" Grid.Row="3" Grid.Column="1" VerticalTextAlignment="Center"/>
+
+                        </Grid>
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentPage>

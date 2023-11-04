@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="JKoonce_Capstone.Views.AddCourse"
+             Title="AddCourse">
+    <NavigationPage.TitleView>
+        <Label Text="Add Course" FontSize="Medium"></Label>
+    </NavigationPage.TitleView>
+    <VerticalStackLayout>
+        <Grid Padding="5" RowSpacing="1" ColumnSpacing="1" BackgroundColor="WhiteSmoke">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Row="0" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center">ID</Label>
+                <Entry Text="{Binding CId}" x:Name="CId" Grid.Row="0" Grid.Column="1" VerticalTextAlignment="Center" IsReadOnly="True"></Entry>
+
+                <Label Grid.Row="1" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center">Name</Label>
+                <Entry Text="{Binding CName}" x:Name="CName" Placeholder="Enter Term Name" Grid.Row="1" Grid.Column="1" VerticalTextAlignment="Center"></Entry>
+
+                <Label Grid.Row="2" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center">Term ID</Label>
+                <Entry Text="{Binding TId}" x:Name="TId" Grid.Row="2" Grid.Column="1" VerticalTextAlignment="Center" IsReadOnly="True"></Entry>
+
+                <Label Grid.Row="3" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center">Notifications</Label>
+                <CheckBox Grid.Row="3" Grid.Column="1" x:Name="CNotify" CheckedChanged="CNotify_CheckedChanged"></CheckBox>
+
+                <Label Grid.Row="4" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center">Start Date</Label>
+                <DatePicker Grid.Row="4" Grid.Column="1" FontSize="Medium" x:Name="CEditStartPick"></DatePicker>
+
+                <Label Grid.Row="5" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center">End Date</Label>
+                <DatePicker Grid.Row="5" Grid.Column="1" FontSize="Medium" x:Name="CEditEndPick"></DatePicker>
+
+                <Label Grid.Row="6" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center">Status</Label>
+                <Picker  x:Name="CStatus" Grid.Row="6" Grid.Column="1" VerticalTextAlignment="Center">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Active</x:String>
+                            <x:String>Completed</x:String>
+                            <x:String>Future</x:String>
+                         </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+
+            <Label Grid.Row="7" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center">Instructor Name</Label>
+                <Entry Text="{Binding CInstName}" x:Name="CInstName" Grid.Row="7" Grid.Column="1" VerticalTextAlignment="Center"></Entry>
+
+                <Label Grid.Row="8" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center">Instructor Phone</Label>
+                <Entry Text="{Binding CInstPhone}" x:Name="CInstPhone" Grid.Row="8" Grid.Column="1" VerticalTextAlignment="Center"></Entry>
+
+                <Label Grid.Row="9" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center">Instructor Email</Label>
+                <Entry Text="{Binding CInstEmail}" x:Name="CInstEmail" Grid.Row="9" Grid.Column="1" VerticalTextAlignment="Center"></Entry>
+
+                <Label Grid.Row="10" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center">Course Notes</Label>
+                <Entry Text="{Binding CNotes}" x:Name="CNotes" Grid.Row="10" Grid.Column="1" VerticalTextAlignment="Center"></Entry>
+
+
+
+            </Grid>
+
+            <Button x:Name="SaveCourse" HorizontalOptions="End" FontSize="Medium" Text="Save" Clicked="SaveCourse_Clicked"></Button>
+    </VerticalStackLayout>
+</ContentPage>

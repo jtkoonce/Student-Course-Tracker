@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="JKoonce_Capstone.Views.LoginPage"
+             Title="LoginPage">
+    <VerticalStackLayout>
+        <Grid Padding="5" RowSpacing="1" ColumnSpacing="1" BackgroundColor="WhiteSmoke">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Entry  x:Name="UserNameField" Placeholder="Enter Your Username" Grid.Row="1" Grid.Column="0" HorizontalOptions="FillAndExpand"></Entry>
+            <Entry  x:Name="PasswordField" Placeholder="Enter Your Password" Grid.Row="2" Grid.Column="0" HorizontalOptions="FillAndExpand"></Entry>
+            <Button Text="Login" Grid.Row="3" x:Name="LoginButton" Clicked="LoginButton_Clicked" HorizontalOptions="FillAndExpand"></Button>
+            
+            
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>

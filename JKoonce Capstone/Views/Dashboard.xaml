@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="JKoonce_Capstone.Views.Dashboard">
+   
+    <NavigationPage.TitleView>
+        <Label Text="Student Dashboard" FontSize="Medium"></Label>
+    </NavigationPage.TitleView>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="AddTerm" Text="Add Term" Clicked="AddTerm_Clicked" Order="Secondary"></ToolbarItem>
+        <ToolbarItem x:Name="Reports" Text="Reports" Clicked="Reports_Clicked" Order="Secondary"></ToolbarItem>
+        <ToolbarItem x:Name="Settings" Text="Settings" Clicked="Settings_Clicked" Order="Secondary"></ToolbarItem>
+        <ToolbarItem x:Name="LogOut" Text="Log Out" Clicked="LogOut_Clicked" Order="Secondary"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView>
+        <Grid Padding="5" RowSpacing="1" ColumnSpacing="1" BackgroundColor="WhiteSmoke">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+            <VerticalStackLayout Margin="20" Spacing="15">
+                    
+                    <Entry Text="{Binding searchText}" x:Name="SearchBar" Placeholder="Direct Course Search" Grid.Row="1" Grid.Column="0" VerticalTextAlignment="Center"></Entry>
+                    <Button Text="Search" Grid.Row="1" Grid.Column="1" x:Name="SearchButton" Clicked="SearchButton_Clicked" HorizontalOptions="FillAndExpand"></Button>
+                
+                    <CollectionView x:Name="TermListView"
+                    ItemsSource="{Binding Term}"
+                    EmptyView="No Terms to Display."
+                    SelectionMode="Single"
+                    SelectionChanged="TermListView_SelectionChanged">
+
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical"
+                        ItemSpacing="10"/>
+                </CollectionView.ItemsLayout>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                            <Grid Padding="5" RowSpacing="1" ColumnSpacing="22" BackgroundColor="BlanchedAlmond">
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Label Grid.Row="0" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center" FontAttributes="Bold">ID</Label>
+                                <Label Text="{Binding TId}"
+                                       FontSize="Medium" Grid.Row="0" Grid.Column="1" VerticalTextAlignment="Center"/>
+                                
+                                <Label Grid.Row="1" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center" FontAttributes="Bold">Name</Label>
+                                <Label Text="{Binding TName}"
+                                       FontSize="Medium" Grid.Row="1" Grid.Column="1" VerticalTextAlignment="Center"/>
+
+                                <Label Grid.Row="2" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center" FontAttributes="Bold">Start Date</Label>
+                                <Label Text="{Binding TStartDate}"
+                                       FontSize="Medium" Grid.Row="2" Grid.Column="1" VerticalTextAlignment="Center"/>
+
+                                <Label Grid.Row="3" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center" FontAttributes="Bold">End Date</Label>
+                                <Label Text="{Binding TEndDate}"
+                                       FontSize="Medium" Grid.Row="3" Grid.Column="1" VerticalTextAlignment="Center"/>
+                            </Grid>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+                
+                
+            </CollectionView>
+
+            <!--#region Button and Labels-->
+                    
+            <!--#endregion-->
+            </VerticalStackLayout>
+        </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

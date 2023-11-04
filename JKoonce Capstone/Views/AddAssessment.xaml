@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="JKoonce_Capstone.Views.AddAssessment"
+             Title="AddAssessment">
+    <NavigationPage.TitleView>
+        <Label Text="Add Assessment" FontSize="Medium"></Label>
+    </NavigationPage.TitleView>
+    <ContentPage.ToolbarItems>
+
+    </ContentPage.ToolbarItems>
+    <VerticalStackLayout Margin="20" Spacing="15">
+        <Grid Padding="5" RowSpacing="1" ColumnSpacing="1" BackgroundColor="WhiteSmoke">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Row="0" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center">ID</Label>
+            <Entry Text="{Binding AId}" x:Name="AId" Grid.Row="0" Grid.Column="1" VerticalTextAlignment="Center" IsReadOnly="True"></Entry>
+
+            <Label Grid.Row="1" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center">Name</Label>
+            <Entry Text="{Binding AName}" x:Name="AName" Placeholder="Enter Term Name" Grid.Row="1" Grid.Column="1" VerticalTextAlignment="Center"></Entry>
+
+            <Label Grid.Row="2" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center">Course ID</Label>
+            <Entry Text="{Binding CId}" x:Name="CId" Grid.Row="2" Grid.Column="1" VerticalTextAlignment="Center" IsReadOnly="True"></Entry>
+
+            <Label Grid.Row="3" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center">Notifications</Label>
+            <CheckBox Grid.Row="3" Grid.Column="1" x:Name="ANotify" CheckedChanged="ANotify_CheckedChanged"></CheckBox>
+
+            <Label Grid.Row="4" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center">Start Date</Label>
+            <DatePicker BindingContext="{Binding AStartDate}" Grid.Row="4" Grid.Column="1" FontSize="Medium" x:Name="AStartPicker"></DatePicker>
+
+            <Label Grid.Row="5" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center">End Date</Label>
+            <DatePicker BindingContext="{Binding AEndDate}" Grid.Row="5" Grid.Column="1" FontSize="Medium" x:Name="AEndPicker"></DatePicker>
+
+            <Label Grid.Row="6" Grid.Column="0" FontSize="Medium" VerticalTextAlignment="Center">Type</Label>
+            <Picker  x:Name="AType" Grid.Row="6" Grid.Column="1" VerticalTextAlignment="Center">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Objective</x:String>
+                        <x:String>Performance</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+
+
+
+
+        </Grid>
+        <Button x:Name="SaveAssessment" HorizontalOptions="End" FontSize="Medium" Text="Save" Clicked="SaveAssessment_Clicked"></Button>
+    </VerticalStackLayout>
+</ContentPage>
