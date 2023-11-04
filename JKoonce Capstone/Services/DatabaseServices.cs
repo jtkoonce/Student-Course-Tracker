@@ -256,9 +256,9 @@ namespace JKoonce_Capstone.Services
 				CEndDate = DateTime.Now.AddMonths(2),
 				CNotify = true,
 				CStatus = "Active",
-				CInstName = "Anika Patel",
-				CInstPhone = "555-123-4567",
-				CInstEmail = "anika.patel@strimeuniversity.edu",
+				CInstName = "John Smith",
+				CInstPhone = "123-456-7890",
+				CInstEmail = "john.smith@testmail.com",
 				CNotes = "Test Software Course"
 			};
 			await _db.InsertAsync(course1);
